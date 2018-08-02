@@ -33,7 +33,8 @@ part pv.01 --grow
 volgroup coreos pv.01
 logvol / --size=3000 --fstype="xfs" --name=root --vgname=coreos
 
-ostreesetup --nogpg --osname=rhcos --remote=rhcos --url=@@OSTREE_INSTALL_URL@@ --ref=@@OSTREE_INSTALL_REF@@
+#ostreesetup --nogpg --osname=rhcos --remote=rhcos --url=@@OSTREE_INSTALL_URL@@ --ref=@@OSTREE_INSTALL_REF@@
+ostreesetup --nogpg --osname=rhcos --remote=rhcos --url="http://192.168.122.1:8000/" --ref=fedora/28/x86_64/coreos
 
 
 reboot

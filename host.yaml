@@ -1,13 +1,17 @@
-ref: "openshift/3.10/x86_64/os"
+ref: "fedora/28/x86_64/coreos"
 repos:
-  - atomic-centos-continuous
-  - rhcos-continuous
+# - atomic-centos-continuous
+# - rhcos-continuous
   - openshift
-  - rhel-7.5-server
-  - rhel-7.5-server-optional
-  - rhel-7.5-server-extras
-  - rhel-7.5-atomic
+# - rhel-7.5-server
+# - rhel-7.5-server-optional
+# - rhel-7.5-server-extras
+# - rhel-7.5-atomic
   - dustymabe-ignition
+  - dustymabe-docker
+  - fahc-rdgo
+  - fedora-28
+  - fedora-28-updates
 install-langs:
  - en_US
 documentation: false
@@ -18,7 +22,8 @@ initramfs-args:
   - "--no-hostonly"
   - "--add"
   - "iscsi"
-mutate-os-release: "7"
+automatic_version_prefix: "28"
+mutate-os-release: "28"
 # https://github.com/projectatomic/rpm-ostree/pull/1425
 machineid-compat: false
 postprocess-script: "compose-post.sh"
@@ -42,7 +47,9 @@ packages:
  # Kernel + systemd
  - kernel irqbalance microcode_ctl systemd
  # Release package
- - redhat-release-coreos
+#- redhat-release-coreos
+# https://github.com/coreos/fedora-coreos-tracker/issues/20
+ - fedora-release-atomichost
  # rpm-ostree
  - rpm-ostree nss-altfiles
  # SELinux
@@ -87,9 +94,9 @@ packages:
  # OpenShift
  - origin-node origin-hyperkube origin-clients
  # pivot/ota tools
- - pivot
+#- pivot
  # Red Hat CA certs
- - subscription-manager-rhsm-certificates
+#- subscription-manager-rhsm-certificates
 
 remove-from-packages:
   - - filesystem

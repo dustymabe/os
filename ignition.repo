@@ -1,6 +1,6 @@
 [dustymabe-ignition]
 name=Copr repo for ignition owned by dustymabe
-baseurl=https://copr-be.cloud.fedoraproject.org/results/dustymabe/ignition/epel-7-$basearch/
+baseurl=https://copr-be.cloud.fedoraproject.org/results/dustymabe/ignition/fedora-28-$basearch/
 type=rpm-md
 skip_if_unavailable=True
 gpgcheck=1

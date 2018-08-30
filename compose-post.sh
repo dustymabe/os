@@ -40,8 +40,8 @@ echo '%sudo        ALL=(ALL)       NOPASSWD: ALL' > /etc/sudoers.d/coreos-sudo-g
 
 # Nuke network.service from orbit
 # https://github.com/openshift/os/issues/117
-rm /etc/rc.d/init.d/network
-rm /etc/rc.d/rc*.d/*network
+#rm /etc/rc.d/init.d/network
+#rm /etc/rc.d/rc*.d/*network
 
 # And readahead https://bugzilla.redhat.com/show_bug.cgi?id=1594984
 # It's long dead upstream, we definitely don't want it.

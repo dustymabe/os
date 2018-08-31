@@ -1,4 +1,4 @@
-ref: "fedora/28/x86_64/coreos"
+ref: "fedora/29/x86_64/coreos"
 repos:
 # - atomic-centos-continuous
 # - rhcos-continuous
@@ -8,10 +8,7 @@ repos:
 # - rhel-7.5-server-extras
 # - rhel-7.5-atomic
   - dustymabe-ignition
-  - dustymabe-docker
-  - fahc-rdgo
-  - fedora-28
-  - fedora-28-updates
+  - fedora-29
 install-langs:
  - en_US
 documentation: false
@@ -22,8 +19,8 @@ initramfs-args:
   - "--no-hostonly"
   - "--add"
   - "iscsi"
-automatic_version_prefix: "28"
-mutate-os-release: "28"
+automatic_version_prefix: "29"
+mutate-os-release: "29"
 # https://github.com/projectatomic/rpm-ostree/pull/1425
 machineid-compat: false
 postprocess-script: "compose-post.sh"
@@ -49,7 +46,7 @@ packages:
  # Release package
 #- redhat-release-coreos
 # https://github.com/coreos/fedora-coreos-tracker/issues/20
- - fedora-release-atomichost
+ - fedora-release-coreos
  # rpm-ostree
  - rpm-ostree nss-altfiles
  # SELinux
@@ -89,6 +86,7 @@ packages:
  - sudo coreutils less tar xz gzip bzip2 rsync tmux
  - nmap-ncat net-tools bind-utils strace
  - bash-completion
+ - hostname
  # Editors
  - vim-minimal nano
  # OpenShift

@@ -35,7 +35,7 @@ mkdir -p /var/opt
 
 # this is where all the real work happens
 rpm-ostree experimental compose treefile-apply \
-    --var osversion=$ID-$VERSION_ID /run/src/packages-openshift.yaml
+    --var "osversion=${ID}-${VERSION_ID}" /run/src/packages-openshift.yaml
 
 # cleanup any repo files we injected
 rm -f /etc/yum.repos.d/{ocp,git,okd}.repo

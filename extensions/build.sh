@@ -9,11 +9,11 @@ fi
 . /etc/os-release
 # XXX: we can drop the rhcos check once we've dropped the `ocp-rhel-9.6` variant
 if [ $ID = rhel ] || [ $ID = rhcos ]; then
-    MANIFEST="manifest-rhel-9.6.yaml"
-    EXTENSIONS="extensions-ocp-rhel-9.6.yaml"
+    MANIFEST="manifest-rhel-${VERSION_ID}.yaml"
+    EXTENSIONS="extensions-ocp-rhel-${VERSION_ID}.yaml"
 else
-    MANIFEST="manifest-c9s.yaml"
-    EXTENSIONS="extensions-okd-c9s.yaml"
+    MANIFEST="manifest-c${VERSION_ID}s.yaml"
+    EXTENSIONS="extensions-okd-c${VERSION_ID}s.yaml"
 fi
 
 rpm-ostree compose extensions --rootfs=/ \

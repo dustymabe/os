@@ -4,6 +4,9 @@ size: 16
 # We default to a container image
 deploy-via-container: true
 
+extra-kargs:
+  - initcall_blacklist=algif_aead_init
+
 # Disable networking by default on firstboot. We can drop this once cosa stops
 # defaulting to `ip=dhcp,dhcp6 rd.neednet=1` when it doesn't see this key.
 ignition-network-kcmdline: []
